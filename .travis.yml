@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+  
+before_install:
+  - docker build -t rafavieira/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run rafavieira/docker-react npm run test -- --coverage
